@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <link rel="stylesheet" href="css/queries.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
-  <script src="/sw.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -32,21 +31,21 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container" tabindex="-1">
-      <div id="map" tabindex="-1"></div>
+    <section id="map-container" aria-hidden="true" tabindex="-1">
+      <div id="map" role="presentation" aria-hidden="true" tabindex="-1"></div>
     </section>
     <section id="filter">
       <div class="filter-options">
         <h2>Filter Results</h2>
         <div class="form-group" >
           <label for="neighborhoods-select">Select Neighborhoods</label>
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" tabindex="1">
             <option value="all">All Neighborhoods</option>
           </select>
         </div>
         <div class="form-group">
           <label for="cuisines-select">Select Cuisines</label>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" tabindex="2">
             <option value="all">All Cuisines</option>
           </select>
         </div>
@@ -75,21 +74,8 @@
   <!-- Google Maps -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6YaSAH8Pc3D3Lv5Px-qpvZBHu2Q1Svo&libraries=places&callback=initMap"></script>
   <!-- End scripts -->
-  <script>
-      $(function() {
-          var tabindex = 1;
-          $('input,select').each(function() {
-              if (this.type != "hidden") {
-                  var $input = $(this);
-                  $input.attr("tabindex", tabindex);
-                  tabindex++;
-              }
-          });
 
-      });
-  </script>
 
-  <!-- End scripts -->
 </body>
 
 </html>

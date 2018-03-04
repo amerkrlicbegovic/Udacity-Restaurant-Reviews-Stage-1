@@ -1,20 +1,8 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var map
-var markers = []
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-}
+  cuisines;
+var map;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -93,6 +81,7 @@ window.initMap = () => {
     scrollwheel: false
   });
   updateRestaurants();
+
 }
 
 /**
@@ -172,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
+  more.setAttribute("aria-label", "View Details"); // TODO: add aria label
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)

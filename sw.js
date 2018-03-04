@@ -7,6 +7,7 @@
         '/js/restaurant_info.js',
         '/js/main.js',
         'https://fonts.googleapis.com/css?family=Lato:300,400',
+        'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js'
 
 
 

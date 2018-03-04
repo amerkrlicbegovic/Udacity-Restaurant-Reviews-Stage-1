@@ -317,7 +317,7 @@ nav h1 a {
 
 .review-name {
 background-color: #252831;
-  padding: 20px;
+  padding: 20px 20px 20px 25px;
   color: #fff;
   font-size: 130%;
   font-weight: 400;
@@ -337,8 +337,10 @@ background-color: #252831;
     margin-left: 20px !important;
     margin-top: 10px;
     text-transform: uppercase;
-    color: #fff;
+    color: #333;
     border-radius: 3px;
+    font-weight: 400;
+    font-size: 110%;
 }
 
 .review-comments{
@@ -381,3 +383,6 @@ background-color: #252831;
   align-items: flex-start;
 }
 
+*:focus{
+  outline-color: #ffa801;
+}

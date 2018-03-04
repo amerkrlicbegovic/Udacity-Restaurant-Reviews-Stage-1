@@ -57,7 +57,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
-  image.alt = restaurant.name; // TODO: add name for image alt
+  image.alt = "The image of the restaurant " + restaurant.name; // TODO: add name for image alt
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.srcset = DBHelper.imageUrlForRestaurant(restaurant) + " " + "1280w" + ", " + DBHelper.imageUrlForRestaurant_1x(restaurant) + " " + "640w"; // TODO: add srcset
   image.sizes = '(max-width: 960px) 50vw, 100vw'; // TODO: add sizes
@@ -120,23 +120,28 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
+  li.setAttribute("tabIndex", "0");// TODO: add tabindex to li item
   name.innerHTML = review.name;
   name.className = 'review-name';
+  name.setAttribute("tabIndex", "0");
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
   date.className= 'review-date';
+  date.setAttribute("tabIndex", "0");
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.className ='review-rating';
+  rating.setAttribute("tabIndex", "0");
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   comments.className = 'review-comments';
+  comments.setAttribute("tabIndex", "0");
   li.appendChild(comments);
 
   return li;
