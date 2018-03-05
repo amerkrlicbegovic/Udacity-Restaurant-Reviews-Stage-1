@@ -144,11 +144,11 @@ createRestaurantHTML = (restaurant) => {
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.srcset = DBHelper.imageUrlForRestaurant(restaurant) + " " + "1280w" + ", " + DBHelper.imageUrlForRestaurant_1x(restaurant) + " " + "640w"; // TODO: add srcset
   image.sizes = '(max-width: 960px) 50vw, 100vw'; // TODO: add sizes
-  image.alt = restaurant.name; // TODO: add name for image alt
+  image.alt = "The restaurant " + restaurant.name; // TODO: add name for image alt
 
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   li.append(name);
 

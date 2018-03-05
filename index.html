@@ -16,14 +16,13 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#252831">
   <!-- Normalize.css for better cross-browser consistency -->
-  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <link rel="stylesheet" href="css/queries.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 </head>
 
-<body>
   <header>
     <nav>
       <h1 ><a href="/" tabindex="-1">Restaurant Reviews</a></h1>
@@ -31,8 +30,8 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container" aria-hidden="true" tabindex="-1">
-      <div id="map" role="presentation" aria-hidden="true" tabindex="-1"></div>
+    <section id="map-container" aria-label="Search results map" aria-hidden="true" tabindex="-1">
+      <div id="map" role="application" aria-hidden="true" tabindex="-1"></div>
     </section>
     <section id="filter">
       <div class="filter-options">
@@ -51,13 +50,12 @@
         </div>
       </div>
     </section>
-    <section class="restaurant-list">
+    <section class="restaurant-list" aria-label="Restaurant list">
       <div class="restaurant">
         <ul id="restaurants-list"></ul>
       </div>
     </section>
   </main>
-
   <!-- Beginning footer -->
   <footer id="footer">
     Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
@@ -74,7 +72,15 @@
   <!-- Google Maps -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo6YaSAH8Pc3D3Lv5Px-qpvZBHu2Q1Svo&libraries=places&callback=initMap"></script>
   <!-- End scripts -->
-
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+                $("#map a").attr("tabindex","-1");
+                $("#map div").attr("tabindex","-1");
+            },
+            2000);
+    });
+</script>
 
 </body>
 

@@ -15,6 +15,8 @@ if ('serviceWorker' in navigator) {
 }
 
 
+
+
 /**
  * Common database helper functions.
  */
